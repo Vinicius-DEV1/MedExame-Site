@@ -59,16 +59,6 @@
     </style>
 </head>
 <body>
-    <!-- Pergunta inicial -->
-    <script>
-        window.onload = function() {
-            const estado = prompt("De qual estado você é?");
-            if (estado) {
-                alert(Bem-vindo(a) do estado ${estado}!);
-            }
-        };
-    </script>
-
     <!-- Cabeçalho -->
     <header class="container-fluid">
         <div class="container d-flex justify-content-between align-items-center">
@@ -82,7 +72,7 @@
             </nav>
             <div>
                 <a href="#" class="btn btn-outline-light btn-sm">Login</a>
-                <a href="#" class="btn btn-light btn-sm">Cadastro</a>
+                <a href="cadastro.html" class="btn btn-light btn-sm">Cadastro</a>
             </div>
         </div>
     </header>
@@ -98,6 +88,52 @@
         <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
     </div>
 
+    <!-- Modal para seleção do estado -->
+    <div class="modal fade" id="estadoModal" tabindex="-1" aria-labelledby="estadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="estadoModalLabel">Selecione seu estado</h5>
+                </div>
+                <div class="modal-body">
+                    <input list="estados" id="estadoInput" class="form-control" placeholder="Digite para buscar o estado">
+                    <datalist id="estados">
+                        <option value="Acre (AC)">
+                        <option value="Alagoas (AL)">
+                        <option value="Amapá (AP)">
+                        <option value="Amazonas (AM)">
+                        <option value="Bahia (BA)">
+                        <option value="Ceará (CE)">
+                        <option value="Distrito Federal (DF)">
+                        <option value="Espírito Santo (ES)">
+                        <option value="Goiás (GO)">
+                        <option value="Maranhão (MA)">
+                        <option value="Mato Grosso (MT)">
+                        <option value="Mato Grosso do Sul (MS)">
+                        <option value="Minas Gerais (MG)">
+                        <option value="Pará (PA)">
+                        <option value="Paraíba (PB)">
+                        <option value="Paraná (PR)">
+                        <option value="Pernambuco (PE)">
+                        <option value="Piauí (PI)">
+                        <option value="Rio de Janeiro (RJ)">
+                        <option value="Rio Grande do Norte (RN)">
+                        <option value="Rio Grande do Sul (RS)">
+                        <option value="Rondônia (RO)">
+                        <option value="Roraima (RR)">
+                        <option value="Santa Catarina (SC)">
+                        <option value="São Paulo (SP)">
+                        <option value="Sergipe (SE)">
+                        <option value="Tocantins (TO)">
+                    </datalist>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="saveEstado">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
@@ -105,5 +141,25 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const estadoModal = new bootstrap.Modal(document.getElementById("estadoModal"));
+            const savedEstado = localStorage.getItem("estado");
+
+            if (!savedEstado) {
+                estadoModal.show();
+            }
+
+            document.getElementById("saveEstado").addEventListener("click", function () {
+                const estado = document.getElementById("estadoInput").value;
+                if (estado) {
+                    localStorage.setItem("estado", estado);
+                    estadoModal.hide();
+                } else {
+                    alert("Por favor, selecione um estado.");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
