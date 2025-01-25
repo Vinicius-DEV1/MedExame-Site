@@ -6,6 +6,8 @@
     <title>Site Inicial</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,7 +34,7 @@
         }
         .banner {
             margin-top: 20px;
-            background-color: #28a745;
+            background-color: #6aed5c;
             height: 300px;
             display: flex;
             align-items: center;
@@ -53,8 +55,29 @@
             background-color: #007bff;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
+            padding: 40px 0;
+        }
+        footer .social-icons a {
+            font-size: 28px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        footer .social-icons a:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+        .facebook {
+            color: #2d3270;
+        }
+        .instagram {
+            color: #E4405F;
+        }
+        .twitter {
+            color: black;
+        }
+        .whatsapp {
+            color: #25D366;
         }
     </style>
 </head>
@@ -64,46 +87,33 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo">Minha Logo</div>
             <nav class="d-flex">
-                <!-- Cliente -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="menuCliente" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sou Paciente
+                        Sou Paciente
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="menuCliente">
-                    <li><a class="dropdown-item" href="#">Opção 1</a></li>
-                    <li><a class="dropdown-item" href="#">Opção 2</a></li>
-                    <li><a class="dropdown-item" href="#">Opção 3</a></li>
+                        <li><a class="dropdown-item" href="#">Consulta</a></li>
+                        <li><a class="dropdown-item" href="#">Exames</a></li>
+                        <li><a class="dropdown-item" href="#">Médicos</a></li>
+                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
                     </ul>
                 </div>
-                <!--Profissional de saúde-->
-                <nav class="d-flex">
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="menuProfissional" data-bs-toggle="dropdown" aria-expanded="false">
-                        Sou Profissional de saúde
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="menuProfissional">
-                        <li><a class="dropdown-item" href="#">Opção 1</a></li>
-                        <li><a class="dropdown-item" href="#">Opção 2</a></li>
-                        <li><a class="dropdown-item" href="#">Opção 3</a></li>
-                        </ul>
-                    </div>
-                <a href="#" class="nav-link">Unidades</a>
-                <a href="#" class="nav-link">Sobre a medexame</a>
-                <!-- Mais -->
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="menuMais" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mais
+                    <a href="#" class="nav-link dropdown-toggle" id="menuProfissional" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sou Profissional de saúde
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="menuMais">
-                    <li><a class="dropdown-item" href="#">Opção 1</a></li>
-                    <li><a class="dropdown-item" href="#">Opção 2</a></li>
-                    <li><a class="dropdown-item" href="#">Opção 3</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="menuProfissional">
+                        <li><a class="dropdown-item" href="#">Fazer Login</a></li>
+                        <li><a class="dropdown-item" href="#">Quero ser Parceiro</a></li>
+                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
                     </ul>
                 </div>
+                <a href="#" class="nav-link">Política de Privacidade</a>
+                <a href="#" class="nav-link">Sobre a Medexame</a>
             </nav>
             <div>
-                <a href="{% url 'redirecionar_login' %}" class="btn btn-outline-light btn-sm">Login</a>
-                <a href="{% url 'cadastro' %}" class="btn btn-light btn-sm">Cadastro</a>
+                <a href="#" class="btn btn-outline-light btn-sm">Login</a>
+                <a href="cadastro.html" class="btn btn-light btn-sm">Cadastro</a>
             </div>
         </div>
     </header>
@@ -119,78 +129,37 @@
         <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
     </div>
 
-    <!-- Modal para seleção do estado -->
-    <div class="modal fade" id="estadoModal" tabindex="-1" aria-labelledby="estadoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="estadoModalLabel">Selecione seu estado</h5>
-                </div>
-                <div class="modal-body">
-                    <input list="estados" id="estadoInput" class="form-control" placeholder="Digite para buscar o estado">
-                    <datalist id="estados">
-                        <option value="Acre (AC)">
-                        <option value="Alagoas (AL)">
-                        <option value="Amapá (AP)">
-                        <option value="Amazonas (AM)">
-                        <option value="Bahia (BA)">
-                        <option value="Ceará (CE)">
-                        <option value="Distrito Federal (DF)">
-                        <option value="Espírito Santo (ES)">
-                        <option value="Goiás (GO)">
-                        <option value="Maranhão (MA)">
-                        <option value="Mato Grosso (MT)">
-                        <option value="Mato Grosso do Sul (MS)">
-                        <option value="Minas Gerais (MG)">
-                        <option value="Pará (PA)">
-                        <option value="Paraíba (PB)">
-                        <option value="Paraná (PR)">
-                        <option value="Pernambuco (PE)">
-                        <option value="Piauí (PI)">
-                        <option value="Rio de Janeiro (RJ)">
-                        <option value="Rio Grande do Norte (RN)">
-                        <option value="Rio Grande do Sul (RS)">
-                        <option value="Rondônia (RO)">
-                        <option value="Roraima (RR)">
-                        <option value="Santa Catarina (SC)">
-                        <option value="São Paulo (SP)">
-                        <option value="Sergipe (SE)">
-                        <option value="Tocantins (TO)">
-                    </datalist>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="saveEstado">Salvar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 Meu Site. Todos os direitos reservados.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold">Medexame</h4>
+                    <p>CNPJ:</p>
+                    <p>Medexame</p>
+                    <p>Informações úteis sobre a Medexame podem ser adicionadas aqui.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold">Informações</h4>
+                    <p>Espaço em branco para preenchimento futuro.</p>
+                    <p>Espaço em branco.</p>
+                </div>
+                <div class="col-md-4 mb-4 text-center">
+                    <h4 class="fw-bold">Siga a gente nas Redes Sociais:</h4>
+                    <div class="d-flex justify-content-center social-icons">
+                        <a href="#" class="mx-2 facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="mx-2 instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="mx-2 twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="mx-2 whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p>© 2025 Medexame. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
-    <!-- Bootstrap -->
+    <!-- Bootstrap and Font Awesome Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const estadoModal = new bootstrap.Modal(document.getElementById("estadoModal"));
-            const savedEstado = localStorage.getItem("estado");
-
-            if (!savedEstado) {
-                estadoModal.show();
-            }
-
-            document.getElementById("saveEstado").addEventListener("click", function () {
-                const estado = document.getElementById("estadoInput").value;
-                if (estado) {
-                    localStorage.setItem("estado", estado);
-                    estadoModal.hide();
-                } else {
-                    alert("Por favor, selecione um estado.");
-                }
-            });
-        });
-    </script>
 </body>
 </html>
