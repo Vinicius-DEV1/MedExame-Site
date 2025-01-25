@@ -55,7 +55,8 @@
             <h3>Cadastro de Paciente</h3>
             <div class="mb-3">
                 <label for="cidadePaciente" class="form-label">Cidade</label>
-                <input type="text" class="form-control" id="cidadePaciente" required>
+                <input type="text" class="form-control" id="cidadePaciente" placeholder="Digite sua cidade" required>
+                <ul id="cidadeSugestoes" class="list-group mt-2"></ul>
             </div>
             <div class="mb-3">
                 <p>Você deseja:</p>
@@ -103,17 +104,51 @@
             const formPaciente = document.getElementById("formPaciente");
             const formClinica = document.getElementById("formClinica");
             const selecao = document.getElementById("selecao");
+            const cidadeInput = document.getElementById("cidadePaciente");
+            const sugestoesContainer = document.getElementById("cidadeSugestoes");
 
-            // Exibe o formulário de Paciente
+            let cidades = [];
+
+            // Carregar lista de cidades ao iniciar
+            fetch("https://servicodados.ibge.gov.br/api/v1/localidades/municipios")
+                .then(response => response.json())
+                .then(data => {
+                    cidades = data.map(cidade => cidade.nome);
+                });
+
+            // Mostrar formulário de Paciente
             btnPaciente.addEventListener("click", function () {
                 selecao.style.display = "none";
                 formPaciente.classList.remove("hidden");
             });
 
-            // Exibe o formulário de Clínica Médica
+            // Mostrar formulário de Clínica Médica
             btnClinica.addEventListener("click", function () {
                 selecao.style.display = "none";
                 formClinica.classList.remove("hidden");
+            });
+
+            // Atualizar sugestões de cidades
+            cidadeInput.addEventListener("input", function () {
+                const query = cidadeInput.value.toLowerCase();
+                sugestoesContainer.innerHTML = "";
+
+                if (query.length > 0) {
+                    const sugestoes = cidades.filter(cidade =>
+                        cidade.toLowerCase().startsWith(query)
+                    );
+
+                    sugestoes.forEach(cidade => {
+                        const li = document.createElement("li");
+                        li.textContent = cidade;
+                        li.classList.add("list-group-item");
+                        li.addEventListener("click", function () {
+                            cidadeInput.value = cidade;
+                            sugestoesContainer.innerHTML = "";
+                        });
+                        sugestoesContainer.appendChild(li);
+                    });
+                }
             });
         });
     </script>
