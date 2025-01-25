@@ -79,6 +79,82 @@
         .whatsapp {
             color: #25D366;
         }
+
+
+        /*
+            CSS DOS CARDS
+        */
+
+        .card {
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+
+        /* 
+            CSS DO APP-QRCODE
+        */
+        .promo-section {
+            background-color: #f4f3ff; /* Fundo lilás claro */
+            border-radius: 15px;
+            padding: 30px; /* Espaçamento interno */
+            text-align: center;
+            color: #4a3dbd; /* Cor do texto roxo */
+            font-family: Arial, sans-serif;
+        }
+
+        .promo-section h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .promo-section p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #6a5cdb; /* Roxo mais claro para o subtítulo */
+        }
+
+        .promo-logo {
+            background-color: #4a3dbd;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 120px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+        }
+
+        .qr-code {
+            margin: 20px 0;
+            max-width: 200px; /* Limita a largura máxima */
+            max-height: 200px; /* Limita a altura máxima */
+            width: 100%; /* A imagem pode ocupar até 100% da largura disponível */
+            height: auto; /* Mantém a proporção original da imagem */
+            object-fit: contain; /* Garante que a imagem se ajusta dentro do espaço sem cortar */
+        }
+
+        .store-buttons img {
+            width: 120px; /* Largura dos botões */
+            margin: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -130,8 +206,94 @@
         <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
     </div>
 
+    <div class="container mt-5">
+        <div class="row g-4">
+            <!-- Consultas presenciais -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-primary">
+                    <div class="icon">👨‍⚕️</div>
+                    <h6>Agendar</h6>
+                    <h5>Consultas presenciais</h5>
+                </div>
+            </div>
+            <!-- Consultas online -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-info">
+                    <div class="icon">📹</div>
+                    <h6>Agendar</h6>
+                    <h5>Consultas online</h5>
+                </div>
+            </div>
+            <!-- Exames -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-danger">
+                    <div class="icon">🧪</div>
+                    <h6>Agendar</h6>
+                    <h5>Exames</h5>
+                </div>
+            </div>
+            <!-- Odontologia -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-purple">
+                    <div class="icon">🦷</div>
+                    <h6>Agendar</h6>
+                    <h5>Odontologia</h5>
+                </div>
+            </div>
+            <!-- Vacinas -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-success">
+                    <div class="icon">💉</div>
+                    <h6>Agendar</h6>
+                    <h5>Vacinas</h5>
+                </div>
+            </div>
+            <!-- Check-ups -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-danger">
+                    <div class="icon">❤️</div>
+                    <h6>Agendar</h6>
+                    <h5>Check-ups</h5>
+                </div>
+            </div>
+            <!-- Cirurgias -->
+            <div class="col-md-4 col-lg-3">
+                <div class="card bg-light text-warning">
+                    <div class="icon">✂️</div>
+                    <h6>Agendar</h6>
+                    <h5>Cirurgias</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <div class="promo-section">
+                <!-- Foto da Logo -->
+                <div class="promo-logo">MedExame</div>
+
+                <!-- Título -->
+                <h1>Baixe nosso App</h1>
+
+                <!-- Descrição -->
+                <p>Marque suas consultas rapidamente de qualquer lugar.</p>
+
+                <!-- QR Code -->
+                <div class="qr-code img-fluid w-20">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" 
+                    alt="QR Code" 
+                    class="img-fluid">
+                </div>
+
+                <!-- Botões das lojas -->
+                <div class="store-buttons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                </div>
+            </div>
+        </div>
     <!-- Rodapé -->
-    <footer>
+    <footer class="mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
