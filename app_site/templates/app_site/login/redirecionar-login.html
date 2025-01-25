@@ -40,20 +40,22 @@
 
     <!-- Modal para escolher Cliente ou Clínica -->
     <div class="container mt-5">
-        <h2 class="text-center">Login</h2>
+      <h2 class="text-center">Login</h2>
 
-        <!-- Janela de Seleção -->
-        <div id="selecao" class="mb-4">
-            <p>Por favor, escolha uma opção:</p>
-            <div class="d-flex justify-content-center gap-3">
-                <button class="btn btn-outline-primary choice-btn" id="btnPaciente">
-                    <i class="bi bi-person-circle"></i> Paciente
-                </button>
-                <button class="btn btn-outline-success choice-btn" id="btnClinica">
-                    <i class="bi bi-hospital"></i> Clínica Médica
-                </button>
-            </div>
-        </div>
+      <!-- Janela de Seleção -->
+      <div id="selecao" class="mb-4">
+          <p>Por favor, escolha uma opção:</p>
+          <div class="d-flex justify-content-center gap-3">
+
+              <a href="{% url 'login_cliente' %}" class="btn btn-outline-primary choice-btn", id="btnPaciente>
+                <i class="bi bi-person-circle"></i> Paciente
+              </a>
+
+              <a href="{% url 'login_clinica' %}" class="btn btn-outline-success choice-btn">
+                <i class="bi bi-hospital"></i> Clínica Médica
+              </a>
+          </div>
+      </div>
 
         <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
