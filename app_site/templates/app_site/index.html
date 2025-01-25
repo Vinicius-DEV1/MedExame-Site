@@ -156,6 +156,88 @@
         }
 
     </style>
+
+
+        <!-- CSS DO PARALLAX-->
+        <style>
+        /* Estilos globais */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Estilos para o parallax */
+        .parallax {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            will-change: transform;
+            transition: transform 0.3s ease;
+        }
+
+        /* Estilos para a seção de contagem */
+        .counter-section {
+            padding: 100px 0;
+            text-align: center;
+            background-color: brown !important; /* Cor neutra */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombramento suave */
+            transition: background-color 0.3s, opacity 0.3s ease;
+        }
+
+        .counter-item {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .counter-section p {
+            font-size: 1.2rem;
+            color: #f8f9fa;
+            margin-top: 10px;
+        }
+
+        /* Ícones */
+        .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* Estilos gerais */
+        .content {
+            padding: 100px 0;
+        }
+
+        .section-text {
+            margin-bottom: 50px;
+        }
+
+        .text-filler {
+            font-size: 1.1rem;
+            color: #888;
+            text-align: center;
+        }
+
+        /* Estilo para os textos fictícios */
+        .content p {
+            margin-bottom: 20px;
+        }
+
+        }
+    </style>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -268,6 +350,51 @@
     </div>
 
 
+
+
+<!-- Seção Parallax com Animação -->
+    <div class="parallax mt-5">
+        <div class="container"> <!-- Aqui foi adicionado o container que limita a largura-->
+        <div class="counter-section" id="counter-section">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="icon">
+                        <i class="bi bi-person-check"></i> <!-- Ícone de cliente -->
+                    </div>
+                    <div class="counter-item" id="clientes">0</div>
+                    <p>Clientes Cadastrados</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon">
+                        <i class="bi bi-building"></i> <!-- Ícone de clínica -->
+                    </div>
+                    <div class="counter-item" id="clinicas">0</div>
+                    <p>Clínicas Parceiras</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon">
+                        <i class="bi bi-person"></i> <!-- Ícone de médico -->
+                    </div>
+                    <div class="counter-item" id="medicos">0</div>
+                    <p>Médicos Ativos</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="icon">
+                        <i class="bi bi-briefcase-medical"></i> <!-- Ícone de especialidade -->
+                    </div>
+                    <div class="counter-item" id="especialidades">0</div>
+                    <p>Especialidades Oferecidas</p>
+                </div>
+            </div>
+        </div> <!-- Fim do container  que limita a largura-->
+        </div>
+    </div>
+
+
+
+
+
+
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
             <div class="promo-section">
                 <!-- Foto da Logo -->
@@ -324,5 +451,54 @@
 
     <!-- Bootstrap and Font Awesome Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+        // Função para animar o número
+        function animateCounter(id, target) {
+            let start = 0;
+            const duration = 2000;
+            const stepTime = Math.abs(Math.floor(duration / target));
+            const counter = document.getElementById(id);
+            
+            const interval = setInterval(() => {
+                start += 1;
+                counter.innerText = start;
+                if (start >= target) {
+                    clearInterval(interval);
+                }
+            }, stepTime);
+        }
+
+        // Detectando visibilidade da seção com o IntersectionObserver
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const counterSection = document.getElementById('counter-section');
+
+                // Quando a seção estiver visível, anima os números
+                if (entry.isIntersecting) {
+                    animateCounter('clientes', 1200);
+                    animateCounter('clinicas', 50);
+                    animateCounter('medicos', 150);
+                    animateCounter('especialidades', 30);
+                    counterSection.style.backgroundColor = '#FF6347'; // Cor intensa quando centralizado
+                    counterSection.style.opacity = '1'; // Opacidade máxima quando visível
+                } else {
+                    // Clareia a cor quando a seção sai da tela
+                    counterSection.style.backgroundColor = '#FF6347'; // Manter cor base
+                    counterSection.style.opacity = '0.3'; // Clareando a opacidade conforme sai
+                }
+            });
+        }, { threshold: 0.5 });  // 50% da seção visível
+
+        // Observa a seção de contagem
+        observer.observe(document.querySelector('.counter-section'));
+
+        // Efeito Parallax
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const parallaxImage = document.querySelector('.parallax img');
+            parallaxImage.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+        });
+    </script>
 </body>
 </html>
