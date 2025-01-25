@@ -66,18 +66,20 @@
             box-sizing: border-box;
         }
 
-        .payment-options .credit-card-details {
+        .credit-card-details {
             display: none;
             flex-direction: column;
             width: 100%;
         }
 
-        .payment-options .credit-card-details input {
-            margin-bottom: 15px;
-            padding: 10px;
-            font-size: 1em;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+        .credit-card-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .credit-card-row input {
+            flex: 1;
         }
 
         .submit-button {
@@ -115,7 +117,6 @@
             text-decoration: underline;
         }
 
-        /* Responsividade */
         @media (max-width: 768px) {
             .payment-options {
                 flex-direction: column;
@@ -126,45 +127,41 @@
                 width: 100%;
                 margin-bottom: 10px;
             }
+
+            .credit-card-row {
+                flex-direction: column;
+            }
         }
     </style>
     <script>
         function toggleCreditCardDetails() {
             const paymentMethod = document.getElementById("payment-method").value;
             const creditCardDetails = document.querySelector(".credit-card-details");
-            if (paymentMethod === "credit-card") {
-                creditCardDetails.style.display = "flex";
-            } else {
-                creditCardDetails.style.display = "none";
-            }
+            creditCardDetails.style.display = paymentMethod === "credit-card" ? "flex" : "none";
         }
     </script>
 </head>
 <body>
-
     <div class="container">
         <h2>Finalizar Pagamento</h2>
 
         <!-- Resumo do Pedido -->
         <div class="order-summary">
             <p><strong>Consulta:</strong> <input type="text" name="consulta" placeholder="Nome da consulta/exame" required></p>
-            <p><strong>Quantidade:</strong> <input type="number" name="quantidade" value="1" required></p>
-            <p class="total-price"><strong>Total:</strong> R$ <input type="number" name="total" value="150.00" step="0.01" required></p>
+            <p><strong>Quantidade:</strong> <input type="number" name="quantidade" value="1" min="1" required></p>
+            <p class="total-price"><strong>Total:</strong> <span id="total-value">R$ 150.00</span></p>
         </div>
 
         <!-- Formulário de pagamento -->
         <form action="processar_pagamento.php" method="post">
-
             <!-- Opção de pagamento -->
             <div class="payment-options">
-                <div>
-                    <label for="payment-method">Método de pagamento</label>
-                    <select id="payment-method" name="payment-method" onchange="toggleCreditCardDetails()" required>
-                        <option value="">Escolha um método</option>
-                        <option value="credit-card">Cartão de Crédito</option>
-                        <option value="bank-slip">Boleto Bancário</option>
-                    </select>
-                </div>
+                <label for="payment-method">Método de pagamento</label>
+                <select id="payment-method" name="payment-method" onchange="toggleCreditCardDetails()" required>
+                    <option value="">Escolha um método</option>
+                    <option value="credit-card">Cartão de Crédito</option>
+                    <option value="bank-slip">Boleto Bancário</option>
+                </select>
             </div>
 
             <!-- Detalhes do Cartão de Crédito -->
@@ -172,11 +169,16 @@
                 <label for="card-number">Número do Cartão</label>
                 <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
 
-                <label for="card-expiration">Validade (MM/AA)</label>
-                <input type="text" id="card-expiration" name="card-expiration" placeholder="MM/AA" required>
-
-                <label for="card-cvc">CVC</label>
-                <input type="text" id="card-cvc" name="card-cvc" placeholder="123" required>
+                <div class="credit-card-row">
+                    <div>
+                        <label for="card-expiration">Validade (MM/AA)</label>
+                        <input type="text" id="card-expiration" name="card-expiration" placeholder="MM/AA" required>
+                    </div>
+                    <div>
+                        <label for="card-cvc">CVC</label>
+                        <input type="text" id="card-cvc" name="card-cvc" placeholder="123" required>
+                    </div>
+                </div>
             </div>
 
             <!-- Botão de envio -->
@@ -189,6 +191,5 @@
             <p>Ou entre em contato conosco: <a href="mailto:contato@medexame.com">contato@medexame.com</a></p>
         </div>
     </div>
-
 </body>
 </html>
