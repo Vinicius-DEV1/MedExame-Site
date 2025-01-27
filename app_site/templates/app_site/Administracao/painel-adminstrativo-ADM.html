@@ -76,7 +76,7 @@
             <!-- Tab: Cadastro Completo -->
             <div class="tab-pane fade show active" id="cadastro-completo" role="tabpanel">
                 <div class="form-section">
-                    <h3>Ficha Cadastral de Profissionais Médicos</h3>
+                    <h3>Ficha Cadastral de clinica</h3>
                     <!-- Formulário de Cadastro Completo -->
                     <form id="formCadastroCompleto">
                         <div class="row">
@@ -144,34 +144,227 @@
             <div class="form-section">
                 <h3>Configurações da Página Inicial</h3>
                 <form id="formPaginaInicial">
+
+                    <!-- Seção Modificar Logo -->
+                    <div class="form-section">
+                        <h4>Modificar Logo</h4>
+                        <div class="mb-3">
+                            <label for="logo" class="form-label">Escolha uma nova imagem para a Logo</label>
+                            <input type="file" id="logo" class="form-control" accept="image/*">
+                        </div>
+                    </div>
+
                     <!-- Modificar o Banner -->
-                    <div class="mb-3">
-                        <label for="banner" class="form-label">Modificar Banner</label>
-                        <input type="file" id="banner" class="form-control" accept="image/*">
+                    <div class="form-section">
+                        <h4>Modificar Banner</h4>
+                        <div class="mb-3">
+                            <label for="banner" class="form-label">Escolha uma nova imagem para o Banner</label>
+                            <input type="file" id="banner" class="form-control" accept="image/*">
+                        </div>
+                    </div>
+
+
+                    <!-- Seção Modificar ou Criar Novas Categorias de Agendamento -->
+                    <div class="form-section">
+                        <h4>Modificar ou Criar Categorias de Agendamento</h4>
+
+                        <!-- Lista de Categorias -->
+                        <div id="categoriesList">
+                            <!-- Categoria: Consultas presenciais -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle1" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle1" class="form-control" value="Consultas presenciais" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon1" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon1" class="form-control" value="👨‍⚕️" placeholder="Ícone (ex: 👨‍⚕️)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor1" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor1" class="form-control" value="#17a2b8">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Consultas online -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle2" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle2" class="form-control" value="Consultas online" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon2" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon2" class="form-control" value="📹" placeholder="Ícone (ex: 📹)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor2" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor2" class="form-control" value="#17a2b8">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Exames -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle3" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle3" class="form-control" value="Exames" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon3" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon3" class="form-control" value="🧪" placeholder="Ícone (ex: 🧪)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor3" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor3" class="form-control" value="#dc3545">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Odontologia -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle4" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle4" class="form-control" value="Odontologia" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon4" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon4" class="form-control" value="🦷" placeholder="Ícone (ex: 🦷)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor4" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor4" class="form-control" value="#6f42c1">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Vacinas -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle5" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle5" class="form-control" value="Vacinas" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon5" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon5" class="form-control" value="💉" placeholder="Ícone (ex: 💉)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor5" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor5" class="form-control" value="#28a745">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Check-ups -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle6" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle6" class="form-control" value="Check-ups" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon6" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon6" class="form-control" value="❤️" placeholder="Ícone (ex: ❤️)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor6" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor6" class="form-control" value="#dc3545">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Categoria: Cirurgias -->
+                            <div class="category-item mb-3">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="categoryTitle7" class="form-label">Título da Categoria</label>
+                                        <input type="text" id="categoryTitle7" class="form-control" value="Cirurgias" placeholder="Nome da categoria">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryIcon7" class="form-label">Ícone da Categoria</label>
+                                        <input type="text" id="categoryIcon7" class="form-control" value="✂️" placeholder="Ícone (ex: ✂️)">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="categoryColor7" class="form-label">Cor da Categoria</label>
+                                        <input type="color" id="categoryColor7" class="form-control" value="#ffc107">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botão para Adicionar Nova Categoria -->
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-outline-primary" onclick="addNewCategory()">Adicionar Nova Categoria</button>
+                        </div>
+
+                        <!-- Botão para Salvar Alterações -->
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+
+
+                    
+                    <!-- Seção FAQ -->
+                    <div class="form-section">
+                        <h4>Perguntas Frequentes (FAQ)</h4>
+                        <!-- Pergunta 1 -->
+                        <div class="mb-3">
+                            <label for="faqQuestion1" class="form-label">Pergunta 1</label>
+                            <input type="text" id="faqQuestion1" class="form-control" value="O que é o MedExame?" placeholder="Insira a pergunta">
+                        </div>
+                        <div class="mb-3">
+                            <label for="faqAnswer1" class="form-label">Resposta 1</label>
+                            <textarea id="faqAnswer1" class="form-control" rows="5" placeholder="Insira a resposta">O MedExame é um sistema que permite que clínicas se cadastrem e ofereçam serviços como exames e consultas de forma prática e eficiente.</textarea>
+                        </div>
+
+                        <!-- Pergunta 2 -->
+                        <div class="mb-3">
+                            <label for="faqQuestion2" class="form-label">Pergunta 2</label>
+                            <input type="text" id="faqQuestion2" class="form-control" value="Como posso me cadastrar no sistema?" placeholder="Insira a pergunta">
+                        </div>
+                        <div class="mb-3">
+                            <label for="faqAnswer2" class="form-label">Resposta 2</label>
+                            <textarea id="faqAnswer2" class="form-control" rows="5" placeholder="Insira a resposta">Para se cadastrar, basta acessar a página inicial, clicar no botão "Cadastro" e preencher o formulário com seus dados.</textarea>
+                        </div>
+
+                        <!-- Adicionar mais perguntas -->
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-outline-primary" onclick="addFaqQuestion()">Adicionar Nova Pergunta</button>
+                        </div>
+                    </div>
+
+                    <!-- Seção Informações Básicas -->
+                    <div class="form-section">
+                        <h4>Informações Básicas da Clínica</h4>
+                        <div class="mb-3">
+                            <label for="infoBasicas" class="form-label">Informações sobre a clínica</label>
+                            <textarea id="infoBasicas" class="form-control" rows="5" placeholder="Insira as informações básicas da clínica"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Seção QR Code -->
+                    <div class="form-section">
+                        <h4>Modificar Links do App</h4>
+                        <div class="mb-3">
+                            <label for="playStoreLink" class="form-label">Link do App na Play Store</label>
+                            <input type="url" id="playStoreLink" class="form-control" placeholder="Insira o link do app na Play Store">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apkLink" class="form-label">Link do APK</label>
+                            <input type="url" id="apkLink" class="form-control" placeholder="Insira o link direto do APK">
+                        </div>
                     </div>
                     
-                    <!-- Modificar o FAQ -->
-                    <div class="mb-3">
-                        <label for="faq" class="form-label">Modificar Perguntas Frequentes (FAQ)</label>
-                        <textarea id="faq" class="form-control" rows="5" placeholder="Insira o texto ou as alterações para o FAQ"></textarea>
-                    </div>
-                    
-                    <!-- Modificar Informações Básicas -->
-                    <div class="mb-3">
-                        <label for="infoBasicas" class="form-label">Modificar Informações Básicas</label>
-                        <textarea id="infoBasicas" class="form-control" rows="5" placeholder="Insira as informações básicas da clínica"></textarea>
-                    </div>
-                    
-                    <!-- Modificar QR Code -->
-                    <div class="mb-3">
-                        <label for="qrcode" class="form-label">Modificar QR Code</label>
-                        <input type="file" id="qrcode" class="form-control" accept="image/*">
-                    </div>
-                    
+                    <!-- Botão Salvar -->
                     <button type="submit" class="btn btn-primary">Salvar Alterações</button>
                 </form>
             </div>
         </div>
+
 
         <!-- Tab: Inbox -->
         <div class="tab-pane fade" id="inbox" role="tabpanel">
