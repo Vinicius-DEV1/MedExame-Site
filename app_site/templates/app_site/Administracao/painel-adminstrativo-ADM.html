@@ -6,6 +6,8 @@
     <title>Admin Geral - Clínica</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -60,6 +62,13 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="tab-contato" data-bs-toggle="tab" data-bs-target="#contato" type="button" role="tab">Contato</button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-pagina-inicial" data-bs-toggle="tab" data-bs-target="#pagina-inicial" type="button" role="tab">Página Inicial</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-inbox" data-bs-toggle="tab" data-bs-target="#inbox" type="button" role="tab">Inbox</button>
+            </li>
+            
         </ul>
 
         <!-- Conteúdo das Abas -->
@@ -102,8 +111,182 @@
             </div>
 
             <!-- Adicionr outras abas aqui -->
+
+            <!-- Tab: Contato -->
+            <div class="tab-pane fade" id="contato" role="tabpanel">
+                <div class="form-section">
+                    <h3>Informe os Contatos</h3>
+                    <form id="formContato">
+                        <div class="mb-3">
+                            <label for="facebook" class="form-label">Facebook</label>
+                            <input type="text" id="facebook" class="form-control" placeholder="Insira o link do Facebook">
+                        </div>
+                        <div class="mb-3">
+                            <label for="instagram" class="form-label">Instagram</label>
+                            <input type="text" id="instagram" class="form-control" placeholder="Insira o link do Instagram">
+                        </div>
+                        <div class="mb-3">
+                            <label for="twitter" class="form-label">Twitter</label>
+                            <input type="text" id="twitter" class="form-control" placeholder="Insira o link do Twitter">
+                        </div>
+                        <div class="mb-3">
+                            <label for="whatsapp" class="form-label">WhatsApp</label>
+                            <input type="text" id="whatsapp" class="form-control" placeholder="Insira o número do WhatsApp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+
+        <!-- Tab: Página Inicial -->
+        <div class="tab-pane fade" id="pagina-inicial" role="tabpanel">
+            <div class="form-section">
+                <h3>Configurações da Página Inicial</h3>
+                <form id="formPaginaInicial">
+                    <!-- Modificar o Banner -->
+                    <div class="mb-3">
+                        <label for="banner" class="form-label">Modificar Banner</label>
+                        <input type="file" id="banner" class="form-control" accept="image/*">
+                    </div>
+                    
+                    <!-- Modificar o FAQ -->
+                    <div class="mb-3">
+                        <label for="faq" class="form-label">Modificar Perguntas Frequentes (FAQ)</label>
+                        <textarea id="faq" class="form-control" rows="5" placeholder="Insira o texto ou as alterações para o FAQ"></textarea>
+                    </div>
+                    
+                    <!-- Modificar Informações Básicas -->
+                    <div class="mb-3">
+                        <label for="infoBasicas" class="form-label">Modificar Informações Básicas</label>
+                        <textarea id="infoBasicas" class="form-control" rows="5" placeholder="Insira as informações básicas da clínica"></textarea>
+                    </div>
+                    
+                    <!-- Modificar QR Code -->
+                    <div class="mb-3">
+                        <label for="qrcode" class="form-label">Modificar QR Code</label>
+                        <input type="file" id="qrcode" class="form-control" accept="image/*">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Tab: Inbox -->
+        <div class="tab-pane fade" id="inbox" role="tabpanel">
+            <div class="form-section">
+                <h3>Caixa de Entrada</h3>
+                <!-- Lista de E-mails -->
+                <ul class="list-group" id="emailList">
+                    <!-- Exemplo de E-mail 1 -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="viewEmail(1)">
+                        <div>
+                            <strong>Assunto do E-mail 1</strong> - remetente@exemplo.com
+                            <div class="text-muted">Prévia do conteúdo do e-mail...</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Novo</span>
+                        <div class="email-options">
+                            <button class="btn btn-link btn-sm" onclick="markAsRead(1)">
+                                <i class="bi bi-check-circle"></i> Marcar como Lido
+                            </button>
+                            <button class="btn btn-link btn-sm" onclick="deleteEmail(1)">
+                                <i class="bi bi-trash"></i> Deletar
+                            </button>
+                        </div>
+                    </li>
+                    <!-- Exemplo de E-mail 2 -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="viewEmail(2)">
+                        <div>
+                            <strong>Assunto do E-mail 2</strong> - outroremetente@exemplo.com
+                            <div class="text-muted">Prévia do conteúdo do e-mail 2...</div>
+                        </div>
+                        <span class="badge bg-secondary rounded-pill">Lido</span>
+                        <div class="email-options">
+                            <button class="btn btn-link btn-sm" onclick="markAsRead(2)">
+                                <i class="bi bi-check-circle"></i> Marcar como Lido
+                            </button>
+                            <button class="btn btn-link btn-sm" onclick="deleteEmail(2)">
+                                <i class="bi bi-trash"></i> Deletar
+                            </button>
+                        </div>
+                    </li>
+                    <!-- Exemplo de E-mail 3 -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="viewEmail(3)">
+                        <div>
+                            <strong>Assunto do E-mail 3</strong> - maisremetente@exemplo.com
+                            <div class="text-muted">Prévia do conteúdo do e-mail 3...</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Novo</span>
+                        <div class="email-options">
+                            <button class="btn btn-link btn-sm" onclick="markAsRead(3)">
+                                <i class="bi bi-check-circle"></i> Marcar como Lido
+                            </button>
+                            <button class="btn btn-link btn-sm" onclick="deleteEmail(3)">
+                                <i class="bi bi-trash"></i> Deletar
+                            </button>
+                        </div>
+                    </li>
+                    <!-- Exemplo de E-mail 4 -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center" data-bs-toggle="modal" data-bs-target="#emailModal" onclick="viewEmail(4)">
+                        <div>
+                            <strong>Assunto do E-mail 4</strong> - exemplo4@dominio.com
+                            <div class="text-muted">Prévia do conteúdo do e-mail 4...</div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Novo</span>
+                        <div class="email-options">
+                            <button class="btn btn-link btn-sm" onclick="markAsRead(4)">
+                                <i class="bi bi-check-circle"></i> Marcar como Lido
+                            </button>
+                            <button class="btn btn-link btn-sm" onclick="deleteEmail(4)">
+                                <i class="bi bi-trash"></i> Deletar
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
         </div>
     </div>
+
+
+
+
+        <!-- Modal de Visualização do E-mail -->
+        <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="emailModalLabel">Assunto do E-mail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Detalhes do E-mail -->
+                        <div>
+                            <p><strong>Remetente:</strong> <span id="emailSender">remetente@exemplo.com</span></p>
+                            <p><strong>Destinatário:</strong> <span id="emailRecipient">destinatario@exemplo.com</span></p>
+                            <p><strong>Assunto:</strong> <span id="emailSubject">Assunto do E-mail</span></p>
+                            <p><strong>Data de Envio:</strong> <span id="emailDate">12/01/2025 14:30</span></p>
+                        </div>
+                        <hr>
+                        <!-- Conteúdo do E-mail -->
+                        <div>
+                            <p><strong>Conteúdo:</strong></p>
+                            <p id="emailContent">Aqui será exibido o conteúdo completo do e-mail.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="replyEmail()">Responder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
