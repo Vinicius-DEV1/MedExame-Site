@@ -22,6 +22,7 @@
       box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
       position: fixed; /* Fixa o menu lateral */
       width: 16.666667%; /* Largura da coluna do Bootstrap */
+      overflow-y: auto;
     }
     .sidebar a {
       color: #fff;
@@ -191,6 +192,25 @@
     .dropdown-menu ul li:hover {
       background-color: #f0f4f8;
     }
+
+    /* sidebar*/
+    /* Estilo da barra de rolagem para navegadores WebKit (Chrome, Safari, Edge) */
+    .sidebar::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+    background: #f0f4f8; /* Cor de fundo da área da barra de rolagem */
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+    background: #000000; /* Cor da barra de rolagem (preta) */
+    border-radius: 5px; /* Bordas arredondadas */
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Cor da barra de rolagem ao passar o mouse */
+    }
   </style>
 </head>
 <body>
@@ -221,7 +241,7 @@
           </div>
         </div>
         <div class="profile" onclick="toggleDropdown('profile')">
-          <img src="https://via.placeholder.com/30" alt="User Avatar">
+          <img src="../img/icon-people.png" alt="User Avatar">
           <span>João Silva</span>
           <div class="dropdown-menu" id="profile-dropdown">
             <ul>
@@ -241,69 +261,31 @@
         <h3>Menu</h3>
         <ul class="nav flex-column">
           <li><a href="#"><i class="bi bi-house-door"></i> Dashboard</a></li>
-          <li><a href="#"><i class="bi bi-people"></i> Usuários</a></li>
-          <li><a href="#"><i class="bi bi-file-earmark-text"></i> Relatórios</a></li>
-          <li><a href="#"><i class="bi bi-gear"></i> Configurações</a></li>
+          <li><a href="#"><i class="bi bi-house-door"></i> Registro de Clínica</a></li>
+          <li><a href="#"><i class="bi bi-people"></i> Upload de documentos</a></li>
+          <li><a href="#"><i class="bi bi-file-earmark-text"></i> Médicos</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Especialidades</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Classes</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Procedimentos</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Agenda online</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Relatorios</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Contato</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Homepage</a></li>
+          <li><a href="#"><i class="bi bi-gear"></i> Inbox</a></li>
         </ul>
       </div>
 
       <!-- Main Content -->
       <div class="col-md-10 main-content">
         <div class="title-container">
-          <h1>Usuários</h1>
+          <h1>Dashboard</h1>
         </div>
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">
-          <i class="bi bi-plus-lg"></i> Adicionar Usuário
-        </button>
+        
 
-        <!-- Tabela de Usuários -->
-        <div class="row mt-4">
-          <div class="col-md-12">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Status</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>João Silva</td>
-                  <td>joao@example.com</td>
-                  <td><span class="badge bg-success">Ativo</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Maria Souza</td>
-                  <td>maria@example.com</td>
-                  <td><span class="badge bg-warning">Pendente</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Carlos Oliveira</td>
-                  <td>carlos@example.com</td>
-                  <td><span class="badge bg-danger">Inativo</span></td>
-                  <td>
-                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal"><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <!-- CORPO -->
+            <div class="row mt-4">
+                
+            </div>
       </div>
     </div>
   </div>

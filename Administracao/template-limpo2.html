@@ -22,7 +22,6 @@
       box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
       position: fixed; /* Fixa o menu lateral */
       width: 16.666667%; /* Largura da coluna do Bootstrap */
-      overflow-y: auto;
     }
     .sidebar a {
       color: #fff;
@@ -192,25 +191,6 @@
     .dropdown-menu ul li:hover {
       background-color: #f0f4f8;
     }
-
-    /* sidebar*/
-    /* Estilo da barra de rolagem para navegadores WebKit (Chrome, Safari, Edge) */
-    .sidebar::-webkit-scrollbar {
-    width: 10px; /* Largura da barra de rolagem */
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-    background: #f0f4f8; /* Cor de fundo da área da barra de rolagem */
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-    background: #000000; /* Cor da barra de rolagem (preta) */
-    border-radius: 5px; /* Bordas arredondadas */
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-    background: #333; /* Cor da barra de rolagem ao passar o mouse */
-    }
   </style>
 </head>
 <body>
@@ -241,7 +221,7 @@
           </div>
         </div>
         <div class="profile" onclick="toggleDropdown('profile')">
-          <img src="../img/icon-people.png" alt="User Avatar">
+          <img src="https://via.placeholder.com/30" alt="User Avatar">
           <span>João Silva</span>
           <div class="dropdown-menu" id="profile-dropdown">
             <ul>
@@ -261,7 +241,6 @@
         <h3>Menu</h3>
         <ul class="nav flex-column">
           <li><a href="#"><i class="bi bi-house-door"></i> Dashboard</a></li>
-          <li><a href="#"><i class="bi bi-house-door"></i> Registro de Clínica</a></li>
           <li><a href="#"><i class="bi bi-people"></i> Upload de documentos</a></li>
           <li><a href="#"><i class="bi bi-file-earmark-text"></i> Médicos</a></li>
           <li><a href="#"><i class="bi bi-gear"></i> Especialidades</a></li>
@@ -278,13 +257,15 @@
       <!-- Main Content -->
       <div class="col-md-10 main-content">
         <div class="title-container">
-          <h1>Dashboard</h1>
+          <h1>Usuários</h1>
         </div>
-        
+        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">
+          <i class="bi bi-plus-lg"></i> Adicionar Usuário
+        </button>
 
         <!-- CORPO -->
             <div class="row mt-4">
-                
+                <P>OLÁ</P>
             </div>
       </div>
     </div>
