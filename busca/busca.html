@@ -64,15 +64,15 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
         }
         .person-info {
-            max-width: 100%;
-            margin-bottom: 20px;
+            max-width: 60%;
         }
         .person-info h2 {
             margin: 0;
-            font-size: 20px;
+            font-size: 24px;
             color: #333;
         }
         .person-info p {
@@ -88,9 +88,18 @@
             font-size: 14px;
         }
 
+        /* Estilos para a foto do médico */
+        .person-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
         /* Informações extras */
-        .location, .price, .agenda {
-            margin-top: 20px;
+        .location, .price, .specialty, .rating {
+            margin-top: 10px;
         }
 
         /* Estilos para o botão "Ver no mapa" */
@@ -106,24 +115,28 @@
 
         /* Estilos da agenda */
         .agenda {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            max-width: 35%;
         }
-        .agenda .time-slot {
-            background-color: #f0f0f0;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .agenda table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        .agenda .time-slot.booked {
+        .agenda table th, .agenda table td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .agenda table th {
+            background-color: #f4f4f9;
+        }
+        .agenda table td.booked {
             background-color: #e0e0e0;
-            cursor: not-allowed;
+            color: #888;
         }
-        .agenda .time-slot:hover:not(.booked) {
+        .agenda table td:hover:not(.booked) {
             background-color: #007bff;
             color: white;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -131,74 +144,152 @@
     <div class="container">
         <!-- Formulário de busca -->
         <div class="search-bar">
-            <form method="get" action="{% url 'busca_pessoas' %}">
-                <input type="text" name="q" value="{{ query }}" placeholder="Digite o nome da pessoa..." />
-                <button type="submit">Buscar</button>
-            </form>
+            <input type="text" placeholder="Digite o nome da pessoa...">
+            <button type="button">Buscar</button>
         </div>
 
         <h1>Resultados da Busca</h1>
-        <p>Buscando por: <strong>{{ query }}</strong></p>
-        
-        {% if resultados %}
-            {% for pessoa in resultados %}
-            <div class="person-box">
+        <p>Buscando por: <strong>João</strong></p>
 
-
-                <div class="d-flex align-items-center flex-row">
-                    <div>
-                        <!-- Foto da pessoa -->
-                        <img src="https://cdn2.iconfinder.com/data/icons/avatar-profile/429/work_profile_user_default_avatar_female_suit-512.png" 
-                             alt="Foto de João Silva" 
-                             class="img-fluid rounded" 
-                             style="width: 10%; height: auto;">
-                    </div>
-                    <div class="person-info ml-3">
-                        <h2>{{ pessoa.nome }}</h2> <!-- Nome da pessoa -->
-                    </div>
-                </div>
-
-
-
-                <!-- Localização -->
-                <div class="location">
-                    <p><strong>Localização:</strong> <a href="https://www.google.com/maps?q={{ pessoa.latitude }},{{ pessoa.longitude }}" target="_blank">Ver no Mapa</a></p>
-                </div>
-
-                <!-- Valor -->
-                <div class="price">
-                    <p><strong>Valor: </strong>R$ {{ pessoa.valor }}</p> <!-- Valor -->
-                </div>
-
-                <!-- Agenda -->
-                <div class="agenda">
-                    <p><strong>Agenda Disponível:</strong></p>
-                    <div class="time-slot">08:00 - 09:00</div>
-                    <div class="time-slot booked">09:00 - 10:00 (Indisponível)</div>
-                    <div class="time-slot">10:00 - 11:00</div>
-                    <div class="time-slot">11:00 - 12:00</div>
-                    <div class="time-slot booked">12:00 - 13:00 (Indisponível)</div>
-                </div>
+        <!-- Exemplo 1 -->
+        <div class="person-box">
+            <img src="img1.jpg" alt="Foto do Médico" class="person-photo">
+            <div class="person-info">
+                <h2>João Silva</h2>
+                <p class="specialty"><strong>Especialidade:</strong> Cardiologia</p>
+                <p class="clinic-name"><strong>Clínica:</strong> Saúde Total</p>
+                <p class="address"><strong>Endereço:</strong> Rua das Flores, 123 - São Paulo, SP</p>
+                <p class="location"><strong>Localização:</strong> <a href="https://www.google.com/maps?q=-23.55052,-46.633308" target="_blank">Ver no Mapa</a></p>
+                <p class="price"><strong>Valor:</strong> R$ 200</p>
+                <p class="rating"><strong>Avaliação:</strong> ⭐⭐⭐⭐ (4.5/5)</p>
             </div>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum resultado encontrado.</p>
-        {% endif %}
+            <div class="agenda">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>08:00 - 09:00</td></tr>
+                        <tr><td class="booked">09:00 - 10:00 (Indisponível)</td></tr>
+                        <tr><td>10:00 - 11:00</td></tr>
+                        <tr><td>11:00 - 12:00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Exemplo 2 -->
+        <div class="person-box">
+            <img src="img2.jpg" alt="Foto do Médico" class="person-photo">
+            <div class="person-info">
+                <h2>Maria Oliveira</h2>
+                <p class="specialty"><strong>Especialidade:</strong> Dermatologia</p>
+                <p class="clinic-name"><strong>Clínica:</strong> Pele Saudável</p>
+                <p class="address"><strong>Endereço:</strong> Av. Brasil, 456 - Rio de Janeiro, RJ</p>
+                <p class="location"><strong>Localização:</strong> <a href="https://www.google.com/maps?q=-22.906847,-43.172896" target="_blank">Ver no Mapa</a></p>
+                <p class="price"><strong>Valor:</strong> R$ 150</p>
+                <p class="rating"><strong>Avaliação:</strong> ⭐⭐⭐⭐ (4.2/5)</p>
+            </div>
+            <div class="agenda">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>08:00 - 09:00</td></tr>
+                        <tr><td>10:00 - 11:00</td></tr>
+                        <tr><td class="booked">11:00 - 12:00 (Indisponível)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Exemplo 3 -->
+        <div class="person-box">
+            <img src="img3.jpg" alt="Foto do Médico" class="person-photo">
+            <div class="person-info">
+                <h2>Pedro Santos</h2>
+                <p class="specialty"><strong>Especialidade:</strong> Ortopedia</p>
+                <p class="clinic-name"><strong>Clínica:</strong> Ossos Fortes</p>
+                <p class="address"><strong>Endereço:</strong> Rua das Palmeiras, 789 - Brasília, DF</p>
+                <p class="location"><strong>Localização:</strong> <a href="https://www.google.com/maps?q=-15.794229,-47.882166" target="_blank">Ver no Mapa</a></p>
+                <p class="price"><strong>Valor:</strong> R$ 180</p>
+                <p class="rating"><strong>Avaliação:</strong> ⭐⭐⭐⭐ (4.0/5)</p>
+            </div>
+            <div class="agenda">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>08:00 - 09:00</td></tr>
+                        <tr><td>09:00 - 10:00</td></tr>
+                        <tr><td>10:00 - 11:00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Exemplo 4 -->
+        <div class="person-box">
+            <img src="img4.jpg" alt="Foto do Médico" class="person-photo">
+            <div class="person-info">
+                <h2>Carla Souza</h2>
+                <p class="specialty"><strong>Especialidade:</strong> Pediatria</p>
+                <p class="clinic-name"><strong>Clínica:</strong> Criança Feliz</p>
+                <p class="address"><strong>Endereço:</strong> Av. Paulista, 1010 - São Paulo, SP</p>
+                <p class="location"><strong>Localização:</strong> <a href="https://www.google.com/maps?q=-19.916681,-43.934493" target="_blank">Ver no Mapa</a></p>
+                <p class="price"><strong>Valor:</strong> R$ 220</p>
+                <p class="rating"><strong>Avaliação:</strong> ⭐⭐⭐⭐⭐ (5.0/5)</p>
+            </div>
+            <div class="agenda">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>09:00 - 10:00</td></tr>
+                        <tr><td>11:00 - 12:00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Exemplo 5 -->
+        <div class="person-box">
+            <img src="img5.webp" alt="Foto do Médico" class="person-photo">
+            <div class="person-info">
+                <h2>Ana Lima</h2>
+                <p class="specialty"><strong>Especialidade:</strong> Ginecologia</p>
+                <p class="clinic-name"><strong>Clínica:</strong> Saúde da Mulher</p>
+                <p class="address"><strong>Endereço:</strong> Rua das Acácias, 567 - Curitiba, PR</p>
+                <p class="location"><strong>Localização:</strong> <a href="https://www.google.com/maps?q=-25.428954,-49.267137" target="_blank">Ver no Mapa</a></p>
+                <p class="price"><strong>Valor:</strong> R$ 130</p>
+                <p class="rating"><strong>Avaliação:</strong> ⭐⭐⭐⭐ (4.3/5)</p>
+            </div>
+            <div class="agenda">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>08:00 - 09:00</td></tr>
+                        <tr><td>09:00 - 10:00</td></tr>
+                        <tr><td>10:00 - 11:00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-
-    <script>
-        // Exemplo de interação para a agenda (simples JS)
-        const timeSlots = document.querySelectorAll('.agenda .time-slot');
-
-        timeSlots.forEach(slot => {
-            slot.addEventListener('click', function() {
-                if (!this.classList.contains('booked')) {
-                    alert('Horário agendado!');
-                    this.style.backgroundColor = '#e0e0e0'; // Marca como agendado visualmente
-                    this.classList.add('booked'); // Marca como "Indisponível"
-                }
-            });
-        });
-    </script>
 </body>
 </html>
