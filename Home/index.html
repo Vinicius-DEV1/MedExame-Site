@@ -8,6 +8,45 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+        <!-- CSS TEXTO DINAMICO PESQUISA -->
+<style>
+        /* Estilo personalizado para o título */
+    .search-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .typed-effect {
+        color: #007bff; /* Azul para destacar */
+        font-weight: bold;
+    }
+</style>
+
+<!-- ESTILO DOS CARDS E BARRA DE BUSCA -->
+<style>
+    /* Estilo personalizado para melhorar a aparência */
+    .custom-search-bar {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .custom-search-bar input {
+        border-radius: 50px 0 0 50px; /* Arredonda apenas os cantos do input */
+        padding: 15px; /* Adiciona espaçamento interno */
+        font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+    }
+    .custom-search-bar button {
+        border-radius: 0 50px 50px 0; /* Arredonda apenas os cantos do botão */
+        padding: 15px 25px; /* Adiciona espaçamento interno */
+        font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+    }
+    .custom-search-bar .input-group {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra suave */
+    }
+</style>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -343,6 +382,86 @@
         </div>
     </div>
 
+    <!-- Adicionando o Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+        <!-- Barra de Busca e Efeito de Texto -->
+    <div class="container mt-5">
+        <!-- Título com o efeito de digitação -->
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <p class="search-title">
+                    Pesquise <span class="typed-effect"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Barra de Busca e Especialidades Mais Buscadas -->
+    <div class="container mt-5">
+        <!-- Barra de Busca -->
+        <div class="row justify-content-center mb-4">
+            <div class="custom-search-bar">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="Pesquisar especialidades..." aria-label="Pesquisar especialidades">
+                    <a href="../busca/busca.html" class="btn btn-primary btn-lg" type="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Especialidades Mais Buscadas -->
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <h3 class="text-center mb-4">Especialidades Mais Buscadas</h3>
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="col-md-3">
+                        <div class="card h-100 text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-heartbeat fa-3x text-danger mb-3"></i>
+                                <h5 class="card-title">Cardiologia</h5>
+                                <p class="card-text">Cuide do seu coração com os melhores especialistas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="col-md-3">
+                        <div class="card h-100 text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-brain fa-3x text-info mb-3"></i>
+                                <h5 class="card-title">Neurologia</h5>
+                                <p class="card-text">Especialistas em saúde do sistema nervoso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="col-md-3">
+                        <div class="card h-100 text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-baby fa-3x text-warning mb-3"></i>
+                                <h5 class="card-title">Pediatria</h5>
+                                <p class="card-text">Cuidados especiais para os pequenos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="col-md-3">
+                        <div class="card h-100 text-center shadow-sm">
+                            <div class="card-body">
+                                <i class="fas fa-tooth fa-3x text-success mb-3"></i>
+                                <h5 class="card-title">Odontologia</h5>
+                                <p class="card-text">Sorria com saúde e confiança.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -545,6 +664,21 @@
             const parallaxImage = document.querySelector('.parallax img');
             parallaxImage.style.transform = `translateY(${scrollPosition * 0.2}px)`;
         });
+    </script>
+
+
+    <script>
+    // Configuração do Typed.js
+    var options = {
+        strings: ["uma especialidade", "uma clínica", "um exame", "uma vacina"], // Textos que serão alternados
+        typeSpeed: 60,  // Velocidade ao digitar
+        backSpeed: 40,  // Velocidade ao apagar
+        backDelay: 1500, // Tempo de pausa antes de apagar
+        loop: true       // Repetir a animação
+    };
+
+    // Inicializar o Typed.js
+    var typed = new Typed(".typed-effect", options);
     </script>
 </body>
 </html>
