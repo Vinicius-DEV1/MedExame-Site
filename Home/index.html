@@ -272,7 +272,7 @@
     </style>
     
 </head>
-<body>
+<body> 
     <!-- Cabeçalho -->
     <header class="container-fluid">
         <div class="container d-flex justify-content-between align-items-center">
@@ -302,85 +302,214 @@
                 <a href="#" class="nav-link">Política de Privacidade</a>
                 <a href="#" class="nav-link">Sobre a Medexame</a>
             </nav>
+
+            <!-- Exibir o estado selecionado -->
             <div>
-                <a href="{% url 'busca_pessoas' %}" class="btn btn-outline-light btn-sm">Busca</a>
+                <span id="estadoSelecionado" class="badge bg-info">Estado: Não Selecionado</span>
                 <a href="{% url 'redirecionar_login' %}" class="btn btn-outline-light btn-sm">Login</a>
                 <a href="{% url 'cadastro' %}" class="btn btn-light btn-sm">Cadastro</a>
+
+                <!-- Ícone do carrinho (antigo) -->
+                <a href="#" class="btn btn-outline-light btn-sm">
+                    <i class="fas fa-shopping-cart"></i> Carrinho
+                </a>
             </div>
         </div>
     </header>
 
-   <!-- Banner -->
-<div class="banner container text-center p-0" style="width: 1200px; height: 300px;">
-  <img src="https://i.postimg.cc/mgnYdk30/banner-site-JPG.png" alt="banner-site-JPG" style="width: 100%; height: 100%; object-fit: cover; object-position: 0 -60px;" class="rounded-2">
-</div>
-
-    <!-- Informações básicas -->
-    <div class="info-section container mt-4">
-        <h2>Informações Básicas</h2>
-        <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
+    <!-- Modal de Seleção de Estado -->
+    <div class="modal fade" id="estadoModal" tabindex="-1" aria-labelledby="estadoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="estadoModalLabel">Qual seu estado?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select id="estado" class="form-select" onchange="mostrarEstado()">
+                        <option value="" disabled selected>Selecione um Estado</option>
+                        <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="PR">Paraná</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="container mt-5">
-        <div class="row g-4">
+    <script>
+        // Exibir o modal assim que a página carregar
+        window.onload = function() {
+            var myModal = new bootstrap.Modal(document.getElementById('estadoModal'));
+            myModal.show();
+        };
+
+        // Função para mostrar o estado selecionado no cabeçalho e fechar o modal
+        function mostrarEstado() {
+            const estado = document.getElementById('estado').value;
+            const estadoTexto = estado ? estado : 'Não Selecionado';
+            document.getElementById('estadoSelecionado').textContent = 'Estado: ' + estadoTexto;
+
+            // Fechar o modal após selecionar o estado
+            var myModal = bootstrap.Modal.getInstance(document.getElementById('estadoModal'));
+            myModal.hide();
+        }
+    </script>
+
+    <!-- Incluir o FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+
+<body>
+    <!-- Banner -->
+    <div class="banner container text-center p-0" style="width: 1200px; height: 300px;">
+        <img src="https://i.postimg.cc/mgnYdk30/banner-site-JPG.png" alt="banner-site-JPG" style="width: 100%; height: 100%; object-fit: cover; object-position: 0 -60px;" class="rounded-2">
+    </div>
+
+    <!-- Informações básicas -->
+    <div class="info-section container mt-4" style="width: 1200px;"> <!-- Ajustei para 1200px -->
+        <h2>Informações Básicas</h2>
+        <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
+        
+        <!-- Cards com flexbox para garantir que fiquem na mesma linha -->
+        <div class="row justify-content-start" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 20px;"> <!-- Adicionei o gap -->
+
             <!-- Consultas presenciais -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-primary">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-primary custom-card">
                     <div class="icon">👨‍⚕️</div>
                     <h6>Agendar</h6>
                     <h5>Consultas presenciais</h5>
                 </div>
             </div>
-            <!-- Consultas online -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-info">
-                    <div class="icon">📹</div>
-                    <h6>Agendar</h6>
-                    <h5>Consultas online</h5>
-                </div>
-            </div>
+            
             <!-- Exames -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-danger">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-danger custom-card">
                     <div class="icon">🧪</div>
                     <h6>Agendar</h6>
                     <h5>Exames</h5>
                 </div>
             </div>
+            
             <!-- Odontologia -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-purple">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-purple custom-card">
                     <div class="icon">🦷</div>
                     <h6>Agendar</h6>
                     <h5>Odontologia</h5>
                 </div>
             </div>
+            
             <!-- Vacinas -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-success">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-success custom-card">
                     <div class="icon">💉</div>
                     <h6>Agendar</h6>
                     <h5>Vacinas</h5>
                 </div>
             </div>
+            
             <!-- Check-ups -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-danger">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-danger custom-card">
                     <div class="icon">❤️</div>
                     <h6>Agendar</h6>
                     <h5>Check-ups</h5>
                 </div>
             </div>
+
             <!-- Cirurgias -->
-            <div class="col-md-4 col-lg-3">
-                <div class="card bg-light text-warning">
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-warning custom-card">
                     <div class="icon">✂️</div>
                     <h6>Agendar</h6>
                     <h5>Cirurgias</h5>
                 </div>
             </div>
+
+            <!-- Novo quadrinho -->
+            <div class="col-md-4 col-lg-2">
+                <div class="card bg-light text-info custom-card">
+                    <div class="icon">📅</div>
+                    <h6>Agendar</h6>
+                    <h5>Consultas online</h5>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- CSS -->
+    <style>
+        /* Modificando os cards diretamente */
+        .custom-card {
+            width: 180px;  /* Define o tamanho fixo do card */
+            height: 150px;  /* Define a altura do card */
+            padding: 10px;  /* Diminui o padding interno */
+            text-align: center;  /* Centraliza o texto */
+            font-size: 0.85rem;  /* Diminui o tamanho da fonte */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 8px;  /* Deixa as bordas arredondadas */
+        }
+
+        /* Ajustando o tamanho do ícone */
+        .custom-card .icon {
+            font-size: 35px;  /* Diminui o tamanho do ícone */
+            margin-bottom: 10px;
+        }
+
+        /* Ajustando os títulos dentro do card */
+        .custom-card h5, .custom-card h6 {
+            font-size: 0.9rem;  /* Ajusta o tamanho dos títulos */
+            margin: 5px 0;
+        }
+
+        /* Garantindo que os cards fiquem na mesma linha sem quebra */
+        .info-section .row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            overflow-x: auto;  /* Adiciona rolagem se necessário */
+        }
+
+        /* Ajusta as colunas para que se ajustem bem nas telas */
+        .info-section .col-md-4, .info-section .col-lg-2 {
+            flex: 0 0 auto;  /* Faz com que cada card fique na linha sem quebra */
+            max-width: 180px;  /* Limita a largura dos cards */
+        }
+    </style>
+</body>
+
+
 
     <!-- Adicionando o Typed.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
@@ -462,9 +591,6 @@
         </div>
     </div>
 
-
-
-
 <!-- Seção Parallax com Animação -->
     <div class="parallax mt-5">
         <div class="container"> <!-- Aqui foi adicionado o container que limita a largura-->
@@ -503,36 +629,32 @@
         </div>
     </div>
 
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="promo-section" style="background-color: #f0f7ff; border: 2px solid #333; border-radius: 15px; padding: 20px; color: black; text-align: center; width: 90%; max-width: 600px; overflow: hidden;">
+        <!-- Foto da Logo -->
+        <div class="promo-logo">MedExame</div>
 
+        <!-- Título -->
+        <h1>Baixe nosso App</h1>
 
+        <!-- Descrição -->
+        <p>Marque suas consultas rapidamente de qualquer lugar.</p>
 
+        <!-- QR Code -->
+        <div class="qr-code" style="margin: 20px auto; width: 150px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" 
+                 alt="QR Code" class="img-fluid">
+        </div>
 
-
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="promo-section">
-                <!-- Foto da Logo -->
-                <div class="promo-logo">MedExame</div>
-
-                <!-- Título -->
-                <h1>Baixe nosso App</h1>
-
-                <!-- Descrição -->
-                <p>Marque suas consultas rapidamente de qualquer lugar.</p>
-
-                <!-- QR Code -->
-<div class="qr-code" style="margin: 20px auto; width: 200px;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" 
-         alt="QR Code" 
-         class="img-fluid">
+        <!-- Imagem do Google Play dentro do quadrado -->
+        <div style="margin-top: 20px; background-color: #f0f7ff; padding: 15px; border-radius: 10px;">
+            <a href="https://play.google.com/store/apps/details?id=com.seuapp" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="width: 180px;">
+            </a>
+        </div>
+    </div>
 </div>
 
-
-                <!-- Botões das lojas -->
-                <div class="store-buttons">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
-                </div>
-            </div>
-        </div>
 
 
     <div class="container mt-5">
