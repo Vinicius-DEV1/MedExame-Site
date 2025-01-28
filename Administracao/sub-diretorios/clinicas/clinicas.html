@@ -22,7 +22,6 @@
       box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
       position: fixed; /* Fixa o menu lateral */
       width: 16.666667%; /* Largura da coluna do Bootstrap */
-      overflow-y: auto;
     }
     .sidebar a {
       color: #fff;
@@ -192,25 +191,6 @@
     .dropdown-menu ul li:hover {
       background-color: #f0f4f8;
     }
-
-    /* sidebar*/
-    /* Estilo da barra de rolagem para navegadores WebKit (Chrome, Safari, Edge) */
-    .sidebar::-webkit-scrollbar {
-    width: 10px; /* Largura da barra de rolagem */
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-    background: #f0f4f8; /* Cor de fundo da área da barra de rolagem */
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-    background: #000000; /* Cor da barra de rolagem (preta) */
-    border-radius: 5px; /* Bordas arredondadas */
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-    background: #333; /* Cor da barra de rolagem ao passar o mouse */
-    }
   </style>
 </head>
 <body>
@@ -241,7 +221,7 @@
           </div>
         </div>
         <div class="profile" onclick="toggleDropdown('profile')">
-          <img src="../img/icon-people.png" alt="User Avatar">
+          <img src="https://via.placeholder.com/30" alt="User Avatar">
           <span>João Silva</span>
           <div class="dropdown-menu" id="profile-dropdown">
             <ul>
@@ -261,8 +241,7 @@
         <h3>Menu</h3>
         <ul class="nav flex-column">
           <li><a href="#"><i class="bi bi-house-door"></i> Dashboard</a></li>
-          <li><a href="#"><i class="bi bi-house-door"></i> Clínicas</a></li>
-          <li><a href="#"><i class="bi bi-people"></i> Usuários</a></li>
+          <li><a href="#"><i class="bi bi-people"></i> Upload de documentos</a></li>
           <li><a href="#"><i class="bi bi-file-earmark-text"></i> Médicos</a></li>
           <li><a href="#"><i class="bi bi-gear"></i> Especialidades</a></li>
           <li><a href="#"><i class="bi bi-gear"></i> Classes</a></li>
@@ -278,14 +257,75 @@
       <!-- Main Content -->
       <div class="col-md-10 main-content">
         <div class="title-container">
-          <h1>Dashboard</h1>
+          <h1>Gerenciamento de Clínicas</h1>
         </div>
         
+    <!-- Botões de Ação -->
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-primary">Adicionar Clínica</button>
+      <button class="btn btn-secondary">Ver Solicitações de Cadastro</button>
+    </div>
 
         <!-- CORPO -->
             <div class="row mt-4">
-                
+
+                <div>
+                  <input type="text" class="form-control" placeholder="Pesquisar clínicas cadastradas">
+                </div>
+
+                <!-- Lista de Clínicas Cadastradas -->
+              <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome da Clínica</th>
+                        <th scope="col">CNPJ</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo 1 -->
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Clínica Saúde Total</td>
+                        <td>12.345.678/0001-99</td>
+                        <td>Rua Principal, 123, Centro</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Editar</button>
+                            <button class="btn btn-danger btn-sm">Deletar</button>
+                            <button class="btn btn-info btn-sm">Detalhes</button>
+                        </td>
+                    </tr>
+                    <!-- Exemplo 2 -->
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Clínica Vida e Saúde</td>
+                        <td>98.765.432/0001-11</td>
+                        <td>Avenida Secundária, 456, Bairro Novo</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Editar</button>
+                            <button class="btn btn-danger btn-sm">Deletar</button>
+                            <button class="btn btn-info btn-sm">Detalhes</button>
+                        </td>
+                    </tr>
+                    <!-- Exemplo 3 -->
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Clínica Bem Estar</td>
+                        <td>23.456.789/0001-22</td>
+                        <td>Praça Central, 789, Vila Antiga</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm">Editar</button>
+                            <button class="btn btn-danger btn-sm">Deletar</button>
+                            <button class="btn btn-info btn-sm">Detalhes</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             </div>
+
+
       </div>
     </div>
   </div>
