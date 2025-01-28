@@ -386,7 +386,6 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
-
 <body>
     <!-- Banner -->
     <div class="banner container text-center p-0" style="width: 1200px; height: 300px;">
@@ -394,73 +393,142 @@
     </div>
 
     <!-- Informações básicas -->
-    <div class="info-section container mt-4" style="width: 1200px;"> <!-- Ajustei para 1200px -->
+    <div class="info-section container mt-4" style="width: 1200px;">
         <h2>Informações Básicas</h2>
         <p>Aqui você pode adicionar informações sobre o site, descrição de serviços ou qualquer outro conteúdo relevante.</p>
         
         <!-- Cards com flexbox para garantir que fiquem na mesma linha -->
-        <div class="row justify-content-start" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 20px;"> <!-- Adicionei o gap -->
+        <div class="row justify-content-start infinite-scroll-container" style="width: 100%; overflow: hidden;">
 
-            <!-- Consultas presenciais -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-primary custom-card">
-                    <div class="icon">👨‍⚕️</div>
-                    <h6>Agendar</h6>
-                    <h5>Consultas presenciais</h5>
+            <!-- Cards (Repetidos para criar rolagem infinita) -->
+            <div class="infinite-scroll">
+                <!-- Consultas presenciais -->
+                <div class="col-md-4 col-lg-2" style="flex: 0 0 165px;">
+                    <div class="card bg-light text-primary custom-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h6>Agendar</h6>
+                        <h5>Consultas presenciais</h5>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Exames -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-danger custom-card">
-                    <div class="icon">🧪</div>
-                    <h6>Agendar</h6>
-                    <h5>Exames</h5>
+
+                <!-- Exames -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-danger custom-card">
+                        <div class="icon">🧪</div>
+                        <h6>Agendar</h6>
+                        <h5>Exames</h5>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Odontologia -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-purple custom-card">
-                    <div class="icon">🦷</div>
-                    <h6>Agendar</h6>
-                    <h5>Odontologia</h5>
+
+                <!-- Odontologia -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-purple custom-card">
+                        <div class="icon">🦷</div>
+                        <h6>Agendar</h6>
+                        <h5>Odontologia</h5>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Vacinas -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-success custom-card">
-                    <div class="icon">💉</div>
-                    <h6>Agendar</h6>
-                    <h5>Vacinas</h5>
+
+                <!-- Vacinas -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-success custom-card">
+                        <div class="icon">💉</div>
+                        <h6>Agendar</h6>
+                        <h5>Vacinas</h5>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Check-ups -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-danger custom-card">
-                    <div class="icon">❤️</div>
-                    <h6>Agendar</h6>
-                    <h5>Check-ups</h5>
+
+                <!-- Check-ups -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-danger custom-card">
+                        <div class="icon">❤️</div>
+                        <h6>Agendar</h6>
+                        <h5>Check-ups</h5>
+                    </div>
+                </div>
+
+                <!-- Cirurgias -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-warning custom-card">
+                        <div class="icon">✂️</div>
+                        <h6>Agendar</h6>
+                        <h5>Cirurgias</h5>
+                    </div>
+                </div>
+
+                <!-- Novo quadrinho -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-info custom-card">
+                        <div class="icon">📅</div>
+                        <h6>Agendar</h6>
+                        <h5>Consultas online</h5>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cirurgias -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-warning custom-card">
-                    <div class="icon">✂️</div>
-                    <h6>Agendar</h6>
-                    <h5>Cirurgias</h5>
+            <!-- Repetição dos Cards -->
+            <div class="infinite-scroll">
+                <!-- Consultas presenciais -->
+                <div class="col-md-4 col-lg-2" style="flex: 0 0 165px;">
+                    <div class="card bg-light text-primary custom-card">
+                        <div class="icon">👨‍⚕️</div>
+                        <h6>Agendar</h6>
+                        <h5>Consultas presenciais</h5>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Novo quadrinho -->
-            <div class="col-md-4 col-lg-2">
-                <div class="card bg-light text-info custom-card">
-                    <div class="icon">📅</div>
-                    <h6>Agendar</h6>
-                    <h5>Consultas online</h5>
+                <!-- Exames -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-danger custom-card">
+                        <div class="icon">🧪</div>
+                        <h6>Agendar</h6>
+                        <h5>Exames</h5>
+                    </div>
+                </div>
+
+                <!-- Odontologia -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-purple custom-card">
+                        <div class="icon">🦷</div>
+                        <h6>Agendar</h6>
+                        <h5>Odontologia</h5>
+                    </div>
+                </div>
+
+                <!-- Vacinas -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-success custom-card">
+                        <div class="icon">💉</div>
+                        <h6>Agendar</h6>
+                        <h5>Vacinas</h5>
+                    </div>
+                </div>
+
+                <!-- Check-ups -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-danger custom-card">
+                        <div class="icon">❤️</div>
+                        <h6>Agendar</h6>
+                        <h5>Check-ups</h5>
+                    </div>
+                </div>
+
+                <!-- Cirurgias -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-warning custom-card">
+                        <div class="icon">✂️</div>
+                        <h6>Agendar</h6>
+                        <h5>Cirurgias</h5>
+                    </div>
+                </div>
+
+                <!-- Novo quadrinho -->
+                <div class="col-md-4 col-lg-2">
+                    <div class="card bg-light text-info custom-card">
+                        <div class="icon">📅</div>
+                        <h6>Agendar</h6>
+                        <h5>Consultas online</h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -470,11 +538,11 @@
     <style>
         /* Modificando os cards diretamente */
         .custom-card {
-            width: 180px;  /* Define o tamanho fixo do card */
-            height: 150px;  /* Define a altura do card */
-            padding: 10px;  /* Diminui o padding interno */
+            width: 167px;  /* Ajusta a largura dos cards para compensar o espaço da letra 'u' */
+            height: 130px;  /* Ajusta a altura dos cards */
+            padding: 12px;  /* Ajusta o padding interno */
             text-align: center;  /* Centraliza o texto */
-            font-size: 0.85rem;  /* Diminui o tamanho da fonte */
+            font-size: 0.9rem;  /* Ajusta o tamanho da fonte */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -483,7 +551,7 @@
 
         /* Ajustando o tamanho do ícone */
         .custom-card .icon {
-            font-size: 35px;  /* Diminui o tamanho do ícone */
+            font-size: 30px;  /* Ajusta o tamanho do ícone */
             margin-bottom: 10px;
         }
 
@@ -496,20 +564,41 @@
         /* Garantindo que os cards fiquem na mesma linha sem quebra */
         .info-section .row {
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            overflow-x: auto;  /* Adiciona rolagem se necessário */
+            flex-wrap: nowrap;  /* Isso garante que os cards não quebrem para a próxima linha */
+            justify-content: flex-start;
+            gap: 10px;  /* Reduz o espaço entre os cards */
         }
 
         /* Ajusta as colunas para que se ajustem bem nas telas */
         .info-section .col-md-4, .info-section .col-lg-2 {
             flex: 0 0 auto;  /* Faz com que cada card fique na linha sem quebra */
-            max-width: 180px;  /* Limita a largura dos cards */
+            max-width: 167px;  /* Limita a largura dos cards */
+        }
+
+        /* Contêiner de rolagem infinita */
+        .infinite-scroll-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animação para rolagem infinita */
+        .infinite-scroll {
+            display: flex;
+            animation: scroll 30s linear infinite; /* A animação vai durar 30 segundos e será infinita */
+        }
+
+        /* Definindo a animação para mover os cards */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move os cards para a esquerda */
+            }
         }
     </style>
 </body>
-
-
 
     <!-- Adicionando o Typed.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
