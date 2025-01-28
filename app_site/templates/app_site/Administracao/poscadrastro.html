@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Cadastro - Medexame</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Centralizando o conteúdo */
+        .content-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh; /* Ajustei a altura para que ocupe mais da tela */
+            font-size: 24px;
+            text-align: center;
+        }
+        /* Cabeçalho - Ajustes de espaçamento e fontes */
+        header {
+            background-color: #007bff; /* Azul */
+            color: white;
+            padding: 30px 0; /* Aumentei o padding para deixar mais espaçoso */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-link {
+            color: white !important;
+            font-size: 16px; /* Ajustei o tamanho das fontes para ficarem mais equilibradas */
+        }
+        .nav-link:hover {
+            color: #f8f9fa !important;
+        }
+        .dropdown-menu {
+            background-color: #ffffff; /* Cor de fundo branca */
+            border: 1px solid #007bff; /* Borda azul */
+        }
+        .dropdown-item {
+            color: #007bff !important; /* Cor do texto azul */
+        }
+        .dropdown-item:hover {
+            background-color: #f8f9fa; /* Cor de fundo clara ao passar o mouse */
+            color: #007bff; /* Cor do texto azul */
+        }
+        .btn {
+            font-size: 14px;
+        }
+
+        /* Rodapé - Ajustes de espaçamento */
+        footer {
+            background-color: #007bff; /* Azul */
+            color: white;
+            margin-top: 150px; /* Afastar mais o rodapé para ele ficar na parte inferior */
+            padding: 30px 0; /* Aumentei o padding para dar mais espaçamento */
+        }
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        /* Cores específicas para as redes sociais */
+        .facebook { color: #1c3d72; } /* Azul escuro */
+        .twitter { color: #000000; } /* Preto */
+        .instagram, .whatsapp { color: #00ff00; } /* Cor padrão */
+
+        .col-md-4 {
+            margin-bottom: 20px;
+        }
+
+        /* Centralizando a mensagem de direitos autorais */
+        footer .container {
+            text-align: center;
+        }
+        .footer-rights {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="container-fluid">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">Minha Logo</div>
+            <nav class="d-flex">
+                <div class="nav-item dropdown me-4">
+                    <a href="#" class="nav-link dropdown-toggle" id="menuCliente" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sou Paciente
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="menuCliente">
+                        <li><a class="dropdown-item" href="#">Consulta</a></li>
+                        <li><a class="dropdown-item" href="#">Exames</a></li>
+                        <li><a class="dropdown-item" href="#">Médicos</a></li>
+                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown me-4">
+                    <a href="#" class="nav-link dropdown-toggle" id="menuProfissional" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sou Profissional de saúde
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="menuProfissional">
+                        <li><a class="dropdown-item" href="#">Fazer Login</a></li>
+                        <li><a class="dropdown-item" href="#">Quero ser Parceiro</a></li>
+                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="nav-link me-4">Política de Privacidade</a>
+                <a href="#" class="nav-link">Sobre a Medexame</a>
+            </nav>
+            <div>
+                <a href="{% url 'redirecionar_login' %}" class="btn btn-outline-light btn-sm me-2">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Centralizado -->
+    <div class="content-center">
+        <p>Seu cadastro está em avaliação.</p>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold">Medexame</h4>
+                    <p>CNPJ:</p>
+                    <p>Medexame</p>
+                    <p>Informações úteis sobre a Medexame podem ser adicionadas aqui.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold">Informações</h4>
+                    <p>Espaço em branco para preenchimento futuro.</p>
+                    <p>Espaço em branco.</p>
+                </div>
+                <div class="col-md-4 mb-4 text-center">
+                    <h4 class="fw-bold">Siga a gente nas Redes Sociais:</h4>
+                    <div class="d-flex justify-content-center social-icons">
+                        <a href="#" class="mx-2 facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="mx-2 instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="mx-2 twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="mx-2 whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="footer-rights">© 2025 Medexame. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

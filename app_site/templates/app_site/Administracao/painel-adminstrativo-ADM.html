@@ -684,14 +684,38 @@
                             </div>
                         </div>
 
-                        <!-- Botão para Adicionar Nova Categoria -->
-                        <div class="mb-3">
-                            <button type="button" class="btn btn-outline-primary" onclick="addNewCategory()">Adicionar Nova Categoria</button>
-                        </div>
+                        <div class="container mt-5">
+    <!-- Categorias existentes -->
+<div id="categoriasContainer">
+    <!-- Exemplos de categorias existentes -->
+    <div class="category-item mb-3" id="categoria1">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="categoryTitle3" class="form-label">Título da Categoria</label>
+                <input type="text" id="categoryTitle3" class="form-control" value="Exames" placeholder="Nome da categoria">
+            </div>
+            <div class="col-md-4">
+                <label for="categoryIcon3" class="form-label">Ícone da Categoria</label>
+                <input type="text" id="categoryIcon3" class="form-control" value="🧪" placeholder="Ícone (ex: 🧪)">
+            </div>
+            <div class="col-md-4">
+                <label for="categoryColor3" class="form-label">Cor da Categoria</label>
+                <input type="color" id="categoryColor3" class="form-control" value="#dc3545">
+            </div>
+        </div>
+    </div>
+    <!-- Mais categorias existentes podem ser listadas aqui -->
+</div>
 
-                        <!-- Botão para Salvar Alterações -->
-                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                    </div>
+<!-- Botão para Adicionar Nova Categoria -->
+<div class="mb-3">
+    <button type="button" class="btn btn-outline-primary" onclick="addNewCategory()">Adicionar Nova Categoria</button>
+</div>
+
+<!-- Botão para Salvar Alterações -->
+<div class="mb-3">
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+</div>
 
 
                     
@@ -869,7 +893,67 @@
 
 
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS --> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function addNewCategory() {
+        // Cria a estrutura da nova categoria
+        var categoriaDiv = document.createElement('div');
+        categoriaDiv.classList.add('category-item', 'mb-3');
+
+        // Cria a linha de inputs para título, ícone e cor
+        var rowDiv = document.createElement('div');
+        rowDiv.classList.add('row');
+
+        // Cria a coluna para o título
+        var colTitle = document.createElement('div');
+        colTitle.classList.add('col-md-4');
+        var titleLabel = document.createElement('label');
+        titleLabel.classList.add('form-label');
+        titleLabel.textContent = 'Título da Categoria';
+        var titleInput = document.createElement('input');
+        titleInput.classList.add('form-control');
+        titleInput.placeholder = 'Nome da categoria';
+        colTitle.appendChild(titleLabel);
+        colTitle.appendChild(titleInput);
+
+        // Cria a coluna para o ícone
+        var colIcon = document.createElement('div');
+        colIcon.classList.add('col-md-4');
+        var iconLabel = document.createElement('label');
+        iconLabel.classList.add('form-label');
+        iconLabel.textContent = 'Ícone da Categoria';
+        var iconInput = document.createElement('input');
+        iconInput.classList.add('form-control');
+        iconInput.placeholder = 'Ícone (ex: 🧪)';
+        colIcon.appendChild(iconLabel);
+        colIcon.appendChild(iconInput);
+
+        // Cria a coluna para a cor
+        var colColor = document.createElement('div');
+        colColor.classList.add('col-md-4');
+        var colorLabel = document.createElement('label');
+        colorLabel.classList.add('form-label');
+        colorLabel.textContent = 'Cor da Categoria';
+        var colorInput = document.createElement('input');
+        colorInput.classList.add('form-control');
+        colorInput.type = 'color';
+        colColor.appendChild(colorLabel);
+        colColor.appendChild(colorInput);
+
+        // Adiciona as colunas à linha
+        rowDiv.appendChild(colTitle);
+        rowDiv.appendChild(colIcon);
+        rowDiv.appendChild(colColor);
+
+        // Adiciona a linha à categoria
+        categoriaDiv.appendChild(rowDiv);
+
+        // Adiciona a nova categoria ao container de categorias
+        document.getElementById('categoriasContainer').appendChild(categoriaDiv);
+    }
+</script>
+
 </body>
 </html>
