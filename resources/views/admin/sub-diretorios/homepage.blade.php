@@ -1,5 +1,5 @@
 @extends('layouts.painel-admin')
-
+@section('header_title', 'Homepage') <!-- Alterando o h1 -->
 @section('content')
     <div class="form-section ms-2">
         <h3>Configurações da Página Inicial</h3>

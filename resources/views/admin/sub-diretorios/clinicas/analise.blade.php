@@ -2,7 +2,7 @@
 @section('header_title', 'Análise de registro de clínicas') <!-- Alterando o h1 -->
 @section('content')
         <!-- CORPO -->
-            <div class="row mt-4">
+            <div class="row mt-4 ms-2">
                 
                 <!-- Informações da Clínica -->
                 <form>
@@ -210,4 +210,4 @@
       }
     };
   </script>
-@endsectionS
+@endsection

@@ -99,7 +99,7 @@
                         <li><a class="dropdown-item" href="#">Consulta</a></li>
                         <li><a class="dropdown-item" href="#">Exames</a></li>
                         <li><a class="dropdown-item" href="#">Médicos</a></li>
-                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
+                        <li><a class="dropdown-item" href="fale-conosco">Fale Conosco</a></li>
                     </ul>
                 </div>
                 <div class="nav-item dropdown">
@@ -109,11 +109,11 @@
                     <ul class="dropdown-menu" aria-labelledby="menuProfissional">
                         <li><a class="dropdown-item" href="#">Fazer Login</a></li>
                         <li><a class="dropdown-item" href="#">Quero ser Parceiro</a></li>
-                        <li><a class="dropdown-item" href="#">Fale Conosco</a></li>
+                        <li><a class="dropdown-item" href="fale-conosco">Fale Conosco</a></li>
                     </ul>
                 </div>
-                <a href="#" class="nav-link">Política de Privacidade</a>
-                <a href="#" class="nav-link">Sobre a Medexame</a>
+                <a href="politicas-de-privacidade" class="nav-link">Política de Privacidade</a>
+                <a href="sobre-a-medexame" class="nav-link">Sobre a Medexame</a>
             </nav>
 
             <!-- Exibir o estado selecionado -->

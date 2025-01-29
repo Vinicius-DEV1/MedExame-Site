@@ -262,15 +262,16 @@
         <h3>Menu</h3>
         <ul class="nav flex-column">
           <li><a href="dashboard"><i class="bi bi-house-door"></i> Dashboard</a></li>
-          <li><a href="clinicas"><i class="bi bi-building"></i> Clínicas</a></li>
+          <li><a href="clinicas1"><i class="bi bi-building"></i> Clínicas</a></li>
           <li><a href="usuarios"><i class="bi bi-people"></i> Usuários</a></li>
           <!--<li><a href="#"><i class="bi bi-file-earmark-text"></i> Médicos</a></li> -->
           <li><a href="especialidades"><i class="bi bi-journal-medical"></i> Especialidades</a></li>
           <li><a href="classes"><i class="bi bi-layers"></i> Classes</a></li>
           <li><a href="procedimentos"><i class="bi bi-clipboard-pulse"></i> Procedimentos</a></li>
+          <li><a href="servicos-diferenciados1"><i class="bi bi-cash-coin"></i> Servicos diferenciados</a></li>
           <!--<li><a href="#"><i class="bi bi-gear"></i> Agenda online</a></li> -->
           <li><a href="relatorios"><i class="bi bi-file-earmark-bar-graph"></i> Relatórios</a></li>
-          <li><a href="contato"><i class="bi bi-envelope"></i> Contato</a></li>
+          <li><a href="contatos"><i class="bi bi-envelope"></i> Contatos</a></li>
           <li><a href="homepage"><i class="bi bi-globe"></i> Homepage</a></li>
           <li><a href="mensagens"><i class="bi bi-chat-dots"></i> Mensagens</a></li>
           <li><a href="lucro"><i class="bi bi-cash-coin"></i> Lucro</a></li>

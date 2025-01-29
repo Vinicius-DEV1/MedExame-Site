@@ -1,5 +1,5 @@
 @extends('layouts.painel-admin')
-
+@section('header_title', 'Menssagens') <!-- Alterando o h1 -->
 @section('content')
     <div class="form-section">
             <h3>Caixa de Entrada</h3>

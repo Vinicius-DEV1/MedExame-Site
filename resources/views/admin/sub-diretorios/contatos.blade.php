@@ -1,5 +1,5 @@
 @extends('layouts.painel-admin')
-@section('header_title', 'Lucro') <!-- Alterando o h1 -->
+@section('header_title', 'Contatos') <!-- Alterando o h1 -->
 @section('content')
         <!-- CORPO -->
             <div class="row mt-4 ms-2">

@@ -23,7 +23,7 @@
                             <td>12.345.678/0001-99</td>
                             <td>Rua Central, 45, Centro</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">Analisar</button>
+                                <a href="clinicas4" class="btn btn-primary btn-sm">Analisar</a>
                             </td>
                         </tr>
                         <!-- Exemplo 2 -->
@@ -33,7 +33,7 @@
                             <td>23.456.789/0001-88</td>
                             <td>Avenida Principal, 123, Bairro Novo</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">Analisar</button>
+                                <a href="clinicas4" class="btn btn-primary btn-sm">Analisar</a>
                             </td>
                         </tr>
                         <!-- Exemplo 3 -->
@@ -43,7 +43,7 @@
                             <td>34.567.890/0001-77</td>
                             <td>Travessa Secundária, 789, Vila Velha</td>
                             <td>
-                                <button class="btn btn-primary btn-sm">Analisar</button>
+                                <a href="clinicas4" class="btn btn-primary btn-sm">Analisar</a>
                             </td>
                         </tr>
                     </tbody>

@@ -3,8 +3,8 @@
 @section('content') 
     <!-- Botões de Ação -->
     <div class="d-flex justify-content-between mb-3">
-      <button class="btn btn-primary">Adicionar Clínica</button>
-      <button class="btn btn-secondary">Ver Solicitações de Cadastro</button>
+      <a href="clinicas2" class="btn btn-primary">Adicionar Clínica</a>
+      <a href="clinicas3" class="btn btn-secondary">Ver Solicitações de Cadastro</a>
     </div>
 
         <!-- CORPO -->
