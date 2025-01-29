@@ -45,7 +45,7 @@ Route::get('/cadastro', function () {
 });
 
 Route::get('/cadastro/analise', function () {
-    return view('/cadastro/poscadastro');
+    return view('/cadastro/poscadrastro');
 });
 
 
@@ -127,6 +127,10 @@ Route::get('/admin-clinica', function () {
     return view('/Clinica/Adminclinica');
 });
 
+//CLINICA INDEX
+Route::get('/clinica', function () {
+    return view('/Clinica/Paginaclinica');
+});
 
 
 // BUSCA
