@@ -12,15 +12,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70vh; /* Ajustei a altura para que ocupe mais da tela */
+            height: 70vh;
             font-size: 24px;
             text-align: center;
+            flex-direction: column; /* Alterado para coluna */
         }
-        /* Cabeçalho - Ajustes de espaçamento e fontes */
+        /* Cabeçalho */
         header {
-            background-color: #007bff; /* Azul */
+            background-color: #007bff;
             color: white;
-            padding: 30px 0; /* Aumentei o padding para deixar mais espaçoso */
+            padding: 30px 0;
         }
         .logo {
             font-size: 24px;
@@ -28,32 +29,33 @@
         }
         .nav-link {
             color: white !important;
-            font-size: 16px; /* Ajustei o tamanho das fontes para ficarem mais equilibradas */
+            font-size: 16px;
         }
         .nav-link:hover {
             color: #f8f9fa !important;
         }
         .dropdown-menu {
-            background-color: #ffffff; /* Cor de fundo branca */
-            border: 1px solid #007bff; /* Borda azul */
+            background-color: #ffffff;
+            border: 1px solid #007bff;
         }
         .dropdown-item {
-            color: #007bff !important; /* Cor do texto azul */
+            color: #007bff !important;
         }
         .dropdown-item:hover {
-            background-color: #f8f9fa; /* Cor de fundo clara ao passar o mouse */
-            color: #007bff; /* Cor do texto azul */
+            background-color: #f8f9fa;
+            color: #007bff;
         }
         .btn {
             font-size: 14px;
         }
-
-        /* Rodapé - Ajustes de espaçamento */
         footer {
-            background-color: #007bff; /* Azul */
+            background-color: #007bff;
             color: white;
-            margin-top: 150px; /* Afastar mais o rodapé para ele ficar na parte inferior */
-            padding: 30px 0; /* Aumentei o padding para dar mais espaçamento */
+            margin-top: 150px;
+            padding: 30px 0;
+        }
+        .footer-rights {
+            margin-top: 20px;
         }
         .social-icons a {
             color: white;
@@ -62,21 +64,32 @@
         .social-icons a:hover {
             color: #f8f9fa;
         }
-        /* Cores específicas para as redes sociais */
-        .facebook { color: #1c3d72; } /* Azul escuro */
-        .twitter { color: #000000; } /* Preto */
-        .instagram, .whatsapp { color: #00ff00; } /* Cor padrão */
-
+        .facebook { color: #1c3d72; }
+        .twitter { color: #000000; }
+        .instagram, .whatsapp { color: #00ff00; }
         .col-md-4 {
             margin-bottom: 20px;
         }
-
-        /* Centralizando a mensagem de direitos autorais */
         footer .container {
             text-align: center;
         }
-        .footer-rights {
+        .small-text {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .documents-list {
+            display: none;
             margin-top: 20px;
+            text-align: left;
+        }
+        .documents-list.active {
+            display: block;
+        }
+        /* Estilo para mover os botões */
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
     </style>
 </head>
@@ -116,9 +129,33 @@
         </div>
     </header>
 
-    <!-- Conteúdo Centralizado -->
+    <!-- Conteúdo -->
     <div class="content-center">
-        <p>Seu cadastro está em avaliação.</p>
+        <div class="buttons-container">
+            <button class="btn btn-primary mb-3" id="btnVerDocumentos">Ver documentos necessários</button>
+            <button class="btn btn-success mb-3" id="btnInserirDocumentos">Inserir documentos</button>
+        </div>
+
+        <div id="documentos" class="documents-list">
+            <p class="small-text">
+                1 – FORMULÁRIO DE PROPOSTA DE CONVÊNIO PREENCHIDO;<br>
+                2 – C.N.E.S. (CADASTRO NACIONAL DE ESTABELECIMENTO DE SAÚDE);<br>
+                3 – C.N.P.J.;<br>
+                4 – COMPROVANTE BANCÁRIO;<br>
+                5 – ALVARÁ DE FUNCIONAMENTO;<br>
+                6 – ALVARÁ DE LICENÇA SANITÁRIA;<br>
+                7 – CERTIDÃO DE RESPONSABILIDADE TÉCNICA;<br>
+                8 – CARTEIRA DO CONSELHO DO RESPONSÁVEL TÉCNICO;<br>
+                9 – REGISTRO DA EMPRESA JUNTO AO RESPECTIVO CONSELHO DE CLASSE;<br>
+                10 – RG, CPF E E-MAIL DO RESPONSÁVEL PELO CONTRATO;<br>
+                11 – CONTRATO SOCIAL E ALTERAÇÕES, SE HOUVER;<br>
+                12 – DIPLOMA;<br>
+                13 – TÍTULOS;<br>
+                14 – IDENTIDADE PROFISSIONAL.
+            </p>
+        </div>
+
+        <p id="mensagem" style="display:none;">Seus dados estão em análise. Obrigado.</p>
     </div>
 
     <!-- Rodapé -->
@@ -152,5 +189,18 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('btnVerDocumentos').addEventListener('click', function() {
+            document.getElementById('documentos').classList.toggle('active');
+            document.querySelector('.buttons-container').style.justifyContent = 'flex-start';
+        });
+
+        document.getElementById('btnInserirDocumentos').addEventListener('click', function() {
+            document.getElementById('btnVerDocumentos').style.display = 'none';
+            document.getElementById('btnInserirDocumentos').style.display = 'none';
+            document.getElementById('documentos').style.display = 'none';
+            document.getElementById('mensagem').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
